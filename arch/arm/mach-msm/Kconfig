@@ -286,4 +286,10 @@ config ARCH_MSM8909
 	select ARCH_WANT_KMAP_ATOMIC_FLUSH
 
 endmenu
+
+config MSM_SLEEPER
+	bool "CPU hotplug driver"
+	default y
+	help
+	  CPU hotplug driver
 endif
