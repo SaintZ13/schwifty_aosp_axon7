@@ -2502,7 +2502,8 @@ static void dwc3_gadget_free_endpoints(struct dwc3 *dwc)
 
 static int __dwc3_cleanup_done_trbs(struct dwc3 *dwc, struct dwc3_ep *dep,
 		struct dwc3_request *req, struct dwc3_trb *trb, unsigned length,
-		const struct dwc3_event_depevt *event, int status)
+		const struct dwc3_event_depevt *event, int status,
+		int chain)
 {
 	unsigned int		count;
 	unsigned int		s_pkt = 0;
@@ -2617,6 +2618,7 @@ static int dwc3_cleanup_done_reqs(struct dwc3 *dwc, struct dwc3_ep *dep,
 		if (req->trb->ctrl & DWC3_TRB_CTRL_HWO)
 			return 0;
 
+		chain = req->request.num_mapped_sgs > 0;
 		i = 0;
 		do {
 			slot = req->start_slot + i;
@@ -2627,14 +2629,13 @@ static int dwc3_cleanup_done_reqs(struct dwc3 *dwc, struct dwc3_ep *dep,
 			trb = &dep->trb_pool[slot];
 			count += trb->size & DWC3_TRB_SIZE_MASK;
 
-
 			if (req->request.num_mapped_sgs)
 				trb_len = sg_dma_len(&req->request.sg[i]);
 			else
 				trb_len = req->request.length;
 
 			ret = __dwc3_cleanup_done_trbs(dwc, dep, req, trb,
-					trb_len, event, status);
+					event, status, chain);
 			if (ret)
 				break;
 		}while (++i < req->request.num_mapped_sgs);
