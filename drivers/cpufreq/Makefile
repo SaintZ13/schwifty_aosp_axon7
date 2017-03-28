@@ -16,10 +16,14 @@ obj-$(CONFIG_CPU_FREQ_GOV_IMPULSE)	+= cpufreq_impulse.o
 obj-$(CONFIG_CPU_FREQ_GOV_BLU_ACTIVE)+= cpufreq_blu_active.o
 obj-$(CONFIG_CPU_FREQ_GOV_BIOSHOCK)	+= cpufreq_bioshock.o
 obj-$(CONFIG_CPU_FREQ_GOV_ALUCARD)	+= cpufreq_alucard.o
-obj-$(CONFIG_CPU_FREQ_GOV_COMMON)		+= cpufreq_governor.o
+obj-$(CONFIG_CPU_FREQ_GOV_ELEMENTALX)	+= cpufreq_elementalx.o
+obj-$(CONFIG_CPU_FREQ_GOV_DESPAIR)	+= cpufreq_despair.o
+obj-$(CONFIG_CPU_FREQ_GOV_SMARTMAX)	+= cpufreq_smartmax.o
+obj-$(CONFIG_CPU_FREQ_GOV_SMARTMAX_EPS)	+= cpufreq_smartmax_eps.o
+obj-$(CONFIG_CPU_FREQ_GOV_LIONFISH)	   += cpufreq_lionfish.o
+obj-$(CONFIG_CPU_FREQ_GOV_COMMON)	+= cpufreq_governor.o
 obj-$(CONFIG_CPU_BOOST)			+= cpu-boost.o
 
-obj-$(CONFIG_CPU_FREQ_GOV_LIONFISH)	   += cpufreq_lionfish.o
 obj-$(CONFIG_CPUFREQ_DT)		+= cpufreq-dt.o
 
 ##################################################################################
