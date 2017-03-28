@@ -157,7 +157,6 @@ config CPU_FREQ_DEFAULT_GOV_BLU_ACTIVE
 	  loading your cpufreq low-level hardware driver, using the
 	  'interactive' governor for latency-sensitive workloads.	  
 
-<<<<<<< HEAD
 config CPU_FREQ_DEFAULT_GOV_ALUCARD
 	bool "alucard"
 	select CPU_FREQ_GOV_ALUCARD
@@ -255,7 +254,6 @@ config CPU_FREQ_GOV_INTERACTIVE
 
 	  If in doubt, say N.
 
-<<<<<<< HEAD
 config CPU_FREQ_GOV_IMPULSE
 	tristate "'interactive' cpufreq policy governor"
 	help
