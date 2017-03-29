@@ -254,12 +254,6 @@ config CPU_FREQ_GOV_INTERACTIVE
 
 	  If in doubt, say N.
 
-config CPU_FREQ_GOV_SMARTMAX
-	tristate "smartmax"
-
-config CPU_FREQ_GOV_SMARTMAX_EPS
-	tristate "smartmax_eps"
-
 config CPU_FREQ_GOV_IMPULSE
 	tristate "'interactive' cpufreq policy governor"
 	help
