@@ -1,14 +1,6 @@
 VERSION = 3
 PATCHLEVEL = 18
-<<<<<<< HEAD
-<<<<<<< HEAD
-SUBLEVEL = 56
-=======
-SUBLEVEL = 58
->>>>>>> a6be49fec94... patch-3.18.57-58
-=======
-SUBLEVEL = 59
->>>>>>> 905e50dd797... patch-3.18.58-59
+SUBLEVEL = 60
 EXTRAVERSION =
 NAME = Shuffling Zombie Juror
 
