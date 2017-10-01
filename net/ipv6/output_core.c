@@ -53,7 +53,6 @@ unsigned int offset = sizeof(struct ipv6hdr);
 
 	while (offset <= packet_len) {
 		struct ipv6_opt_hdr *exthdr;
-		unsigned int len;
 
 		switch (**nexthdr) {
 
@@ -79,10 +78,9 @@ unsigned int offset = sizeof(struct ipv6hdr);
 
 		exthdr = (struct ipv6_opt_hdr *)(skb_network_header(skb) +
 						 offset);
-		len = ipv6_optlen(exthdr);
-		if (len + offset >= IPV6_MAXPLEN)
+		offset += ipv6_optlen(exthdr);
+		if (offset > IPV6_MAXPLEN)
 			return -EINVAL;
-		offset += len;
 		*nexthdr = &exthdr->nexthdr;
 		exthdr = (struct ipv6_opt_hdr *)(skb_network_header(skb) +
 						 offset);
